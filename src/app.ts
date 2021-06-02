@@ -5,7 +5,6 @@ import cookieParser from "cookie-parser";
 import {json, urlencoded} from "body-parser";
 
 const app = express();
-const mysql = require('mysql');
 
 app.use(json());
 app.use(urlencoded());
@@ -17,6 +16,7 @@ app.use(cookieParser());
 app.post("/login", login);
 
 app.use("/", controller);
+    
 
 app.listen(1422, () => {
     console.info("Listen port 1422");

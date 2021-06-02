@@ -1,14 +1,7 @@
 import express, { Request, Response } from "express";
+import { MySQLDb } from "../db/db";
 
 export const controller = express.Router();
-
-var mysql = require('mysql'); // nhúng module mysql vào trang
-const db = mysql.createConnection ({
-   host: 'localhost:1422',
-   user: 'admin',
-   password: '123456',
-   database: 'bookstore'  //tên database muốn kết nối
-});
 
 controller.get("/", (req: Request, res: Response) => {
     if (req.cookies.name !== "admin") {
@@ -16,7 +9,17 @@ controller.get("/", (req: Request, res: Response) => {
         return;
     }
 
-    res.render("index", {page: "home"})
+    const mysql = MySQLDb.getInstance();
+    const db = mysql.db;
+
+    const sql = "SELECT * FROM sinh_vien";
+    
+    db.query(sql, function(err, results) {
+      if (err) throw err;
+      const students = results;
+      res.render("index", {students: students})
+    });
+
 })
 
 controller.get("/login", (req: Request, res: Response) => {
