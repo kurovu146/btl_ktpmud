@@ -1,25 +1,42 @@
 import express, { Request, Response } from "express";
+import { MySQLDb } from "../../db/db";
 import { hashPassword } from "../../libs/hash";
 
-const user = {
-    userName: "tuan1422",
-    hash: "3a81b40bc8557900bd7b62608bcf17c7a6215a0c5d17bf3f4dc0d0ded33d953abf17e60b1c60b62bda635042155e899193bc1707058b1a6dee1faa2c2c4b4c77",
-    salt: "495a6308376e9f45a963641d3f276f7a"
-}
-
-export const  login = (req: Request<{},{},{username: string, password: string}>, res: Response) => {
+export const login = (req: Request<{}, {}, { username: string, password: string }>, res: Response) => {
     //TODO
+    const mysql = MySQLDb.getInstance();
+    const db = mysql.db;
 
-    if (req.body.username !== user.userName) {
-        res.status(400).send("Tên đăng nhập chưa chính xác!");
-        return;
-    }
+    const sql = 'SELECT * FROM users';
 
-    if (hashPassword(req.body.password, user.salt) !== user.hash) {
-        res.status(400).send('Mật khẩu chưa chính xác!');
-        return;
-    }
+    db.query(sql, function (err, results) {
+        if (err) throw err;
+        const user = results;
 
-    res.cookie('name', 'admin', { expires: new Date(Date.now() + 900000)});
-    res.redirect("/");
+        var count1 = 0;
+        var count2 = 0;
+
+        for (var ojb of user) {
+            if (req.body.username !== ojb.id) {
+                count1++;
+            }
+        }
+        if (count1) {
+            res.status(400).send("Tên đăng nhập chưa chính xác!");
+            res.redirect("/login");
+        }
+
+        for (var ojb of user) {
+            if (req.body.password !== ojb.password) {
+                count2++;
+            }
+        }
+        if (count2) {
+            res.status(400).send('Mật khẩu chưa chính xác!');
+            res.redirect("/login");
+        }
+
+        res.cookie('name', 'admin', { expires: new Date(Date.now() + 9000000000) });
+        res.redirect("/");
+    });
 };

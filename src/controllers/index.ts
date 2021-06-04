@@ -12,7 +12,7 @@ controller.get("/", (req: Request, res: Response) => {
     const mysql = MySQLDb.getInstance();
     const db = mysql.db;
 
-    const sql = "SELECT * FROM sinh_vien";
+    const sql = "SELECT * FROM users";
     
     db.query(sql, function(err, results) {
       if (err) throw err;
@@ -23,11 +23,7 @@ controller.get("/", (req: Request, res: Response) => {
 })
 
 controller.get("/login", (req: Request, res: Response) => {
-    if (req.cookies.name === "admin") {
-        res.redirect("/");
-        return;
-    }
-    res.render("login");
+      res.render("login")
 })
 
 controller.get("/register", (req: Request, res: Response) => {
@@ -38,8 +34,8 @@ controller.get("/notification", (req: Request, res: Response) => {
     res.render("notification")
 })
 
-controller.get("/file", (req: Request, res: Response) => {
-    res.render("file")
+controller.get("/profiles", (req: Request, res: Response) => {
+    res.render("profiles")
 })
 
 controller.get("/bill", (req: Request, res: Response) => {
