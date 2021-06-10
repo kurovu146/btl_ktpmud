@@ -12,7 +12,7 @@ controller.get("/", (req: Request, res: Response) => {
     const mysql = MySQLDb.getInstance();
     const db = mysql.db;
 
-    const sql = "SELECT * FROM users";
+    const sql = "SELECT * FROM sinh_vien";
     
     db.query(sql, function(err, results) {
       if (err) throw err;
