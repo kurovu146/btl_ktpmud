@@ -8,23 +8,15 @@ export const register = (req: Request<{},{},{username: string, password: string}
     const mysql = MySQLDb.getInstance();
     const db = mysql.db;
 
-    let id = req.body.username;
-    let pass = req.body.password;
-    let input = {username:id, password:pass} 
+    let username = req.body.username;
+    let password = req.body.password;
+    let input = {username, password} 
 
-    db.query('SELECT username FROM users',function(err, results) {
+    db.query(`SELECT username FROM users WHERE username = ${username}`,function(err, results) {
         if (err) throw err;
-        const user = results;
-
-        var count = 0;
-
-        for (let ojb of user) {
-            if (req.body.username === ojb.username) {
-                count++;
-            }
-        }
         
-        if (count) {
+        
+        if (username) {
             res.status(400).send("Tên đăng nhập đã được sử dụng!");
             return;
         }

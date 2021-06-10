@@ -1,0 +1,10 @@
+<div id="logout">
+    <button onclick="myFunction()">Log out</button>
+</div>
+
+<script>
+    function myFunction() {
+        document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      window.location.reload();
+    }
+</script>

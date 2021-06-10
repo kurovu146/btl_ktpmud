@@ -7,42 +7,19 @@ export const login = (req: Request<{}, {}, { username: string, password: string 
     const mysql = MySQLDb.getInstance();
     const db = mysql.db;
 
-    db.query('SELECT username FROM users',function(err, results) {
+    let username = req.body.username;
+    let password = req.body.password;
+
+    db.query(`SELECT * FROM users WHERE username = "${username}" AND password = "${password}"`,function(err, results) {
         if (err) throw err;
-        const user = results;
 
-        var count = 0;
-
-        for (let ojb of user) {
-            if (req.body.username !== ojb.username) {
-                count++;
-            }
-        }
-        
-        if (count) {
-            res.status(400).send("Tên đăng nhập chưa chính xác!");
-            return;
-        }
-    });
-
-    db.query('SELECT password FROM users',function(err, results) {
-        if (err) throw err;
-        const user = results;
-
-        var count = 0;
-
-        for (let ojb of user) {
-            if (req.body.username !== ojb.password) {
-                count++;
-            }
-        }
-        
-        if (count) {
-            res.status(400).send("Mật khẩu chưa chính xác!");
+        if (results.length === 0) {
+            res.render("login",{validate: "Tài khoản không tồn tại hoặc bạn nhập sai mật khẩu, tài khoản"});
             return;
         }
 
-        res.cookie('name', 'admin', { expires: new Date(Date.now() + 9000000000) });
+
+        res.cookie('username', 'admin', { expires: new Date(Date.now() + 9000000000) });
         res.redirect("/");
     });
 
