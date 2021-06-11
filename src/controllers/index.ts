@@ -8,18 +8,7 @@ controller.get("/", (req: Request, res: Response) => {
         res.redirect("/login");
         return;
     }
-
-    const mysql = MySQLDb.getInstance();
-    const db = mysql.db;
-
-    const sql = "SELECT * FROM sinhvien";
-    
-    db.query(sql, function(err, results) {
-      if (err) throw err;
-      const students = results;
-      res.render("index", {students: students})
-    });
-
+    res.render("index");
 })
 
 controller.get("/login", (req: Request, res: Response) => {
@@ -36,6 +25,10 @@ controller.get("/register", (req: Request, res: Response) => {
 
 controller.get("/notification", (req: Request, res: Response) => {
     res.render("notification")
+})
+
+controller.get("/phieuDK", (req: Request, res: Response) => {
+    res.render("phieuDK");
 })
 
 controller.get("/profiles", (req: Request, res: Response) => {

@@ -1,0 +1,10 @@
+<div class="logout">
+    <button onclick="myFunction()" style="background-color: #5069f8">Đăng xuất</button>
+</div>
+
+<script>
+    function myFunction() {
+        document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      window.location.reload();
+    }
+</script>
