@@ -28,7 +28,7 @@ controller.get("/notification", (req: Request, res: Response) => {
 })
 
 controller.get("/phieuDK", (req: Request, res: Response) => {
-    res.render("phieuDK");
+    res.render("phieuDK", {result: "Vui lòng nhập thông tin để đăng kí!"});
 })
 
 controller.get("/profiles", (req: Request, res: Response) => {

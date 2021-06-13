@@ -5,26 +5,49 @@
 </head>
 
 <body>
-    <form action="" method="POST" onsubmit="return validate()">
+    <form action="" method="POST" onsubmit="return result()">
         <div class="registerform">
             <h1>Phếu đăng ký</h1>
-            <p>Vui lòng điền thông tin để đăng ký</p>
+            <p><%= result %></p>
+            <div>
             <hr>
                 <label for="msPDK"><b>Mã phiếu đăng kí</b></label>
                 <input type="text" name="msPDK" id="msPDK">
-                <label for="mssv"><b>MSSV</b></label>
-                <input type="number" name="mssv" id="mssv">
+                <br>
+                <label for="MSSV"><b>MSSV</b></label>
+                <br>
+                <input type="number" name="MSSV" id="MSSV">
+                <br>
+                <br>
                 <label for="msPhong"><b>Mã số phòng</b></label>
+                <br>
                 <input type="text" name="msPhong" id="msPhong">
+                <br>
                 <label for="NgayBD"><b>Ngày bắt đầu</b></label>
                 <input type="date" name="NgayBD" id="NgayBD">
-                <label for="giaPh"><b>Giá Phòng</b></label>
-                <input type="number" name="giaPh" id="giaPh">
-                <label for="tongTien"><b>Tổng tiền</b></label>
-                <input type="number" name="tongTien" id="tongTien">
-                <label for="nguoiThu"><b>Người thu tiền</b></label>
-                <input type="text" name="nguoiThu" id="nguoiThu">
+                <br>
+                <br>
+                <label for="GiaPh"><b>Giá Phòng</b></label>
+                <br>
+                <input type="number" name="GiaPh" id="GiaPh">
+                <br>
+                <br>
+                <label for="Tongtien"><b>Tổng tiền</b></label>
+                <br>
+                <input type="number" name="Tongtien" id="Tongtien">
+                <br>
+                <br>
+                <label for="NgayLP"><b>Ngày lập phiếu</b></label>
+                <br>
+                <input type="date" name="NgayLP" id="NgayLP">
+                <br>
+                <br>
+                <label for="NguoiLP"><b>Người lập phiếu</b></label>
+                <br>
+                <input type="text" name="NguoiLP" id="NguoiLP">
+                <br>
             <hr>
+            </div>
             <p>Vui lòng đồng ý với nội quy, quy định của Ban quản lý kí túc xá đề ra.</p>
             <button type="submit" class="submit">Đăng ký</button>
         </div>
