@@ -5,6 +5,7 @@ import cookieParser from "cookie-parser";
 import {json, urlencoded} from "body-parser";
 import { register } from "./controllers/register/register";
 import { phieuDK } from "./controllers/phieuDK/phieuDK";
+import { student } from "./controllers/student/student";
 
 const app = express();
 
@@ -18,6 +19,7 @@ app.use(cookieParser());
 app.post("/login", login);
 app.post("/register", register);
 app.post("/phieuDK", phieuDK);
+app.post("/student", student);
 
 app.use("/", controller);
     
