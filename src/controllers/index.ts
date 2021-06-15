@@ -21,7 +21,7 @@ controller.get("/login", (req: Request, res: Response) => {
 })
 
 controller.get("/register", (req: Request, res: Response) => {
-    res.render("register");
+    res.render("register", {result: ""});
 })
 
 controller.get("/notification", (req: Request, res: Response) => {

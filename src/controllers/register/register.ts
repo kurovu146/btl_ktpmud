@@ -12,18 +12,17 @@ export const register = (req: Request<{},{},{username: string, password: string}
     let password = req.body.password;
     let input = {username, password} 
 
-    db.query(`SELECT username FROM users WHERE username = ${username}`,function(err, results) {
+    db.query(`SELECT username FROM users WHERE username = "${username}"`,function(err, results) {
         if (err) throw err;
         
-        
-        if (username) {
-            res.status(400).send("Tên đăng nhập đã được sử dụng!");
+        if (username === results) {
+            res.render("register", {result: "Tài khoản đã được sử dụng!"})
             return;
         }
     });
 
     db.query('INSERT INTO users SET ?', input ,function(err, results) {
         if (err) throw err;
-        res.redirect("/login");
+        res.render("login", {validate: "Đăng kí thành công!"})
     });
 };
