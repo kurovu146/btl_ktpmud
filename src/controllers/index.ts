@@ -58,7 +58,9 @@ controller.get("/stu_info", (req: Request, res: Response) => {
 
     db.query(`SELECT * FROM sinhvien`, function(err, results) {
         if (err) throw err;
-        var student = results;
-        res.render("stu_info", {student: student})
+        // object => {
+        //    key: value
+        //}
+        res.render("stu_info", { student: results })
     })
 })

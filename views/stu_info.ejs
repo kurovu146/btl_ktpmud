@@ -1,7 +1,6 @@
 <link rel='stylesheet' href='./css/stu_info.css' />
 
 <body>
-
     <table id="customers">
         <tr>
             <th>MSSV</th>
@@ -14,11 +13,19 @@
             <th>SDT</th>
             <th>Email</th>
         </tr>
-        <tr>
-            <td>Alfreds Futterkiste</td>
-            <td>Maria Anders</td>
-            <td>Germany</td>
-        </tr>
+        <% for(var i=0; i < student.length; i++) { %>
+            <tr>
+              <td><%= student[i].MSSV %></td>
+              <td><%= student[i].Nganh %></td>
+              <td><%= student[i].Hoten %></td>
+              <td><%= student[i].CMND %></td>
+              <td><%= student[i].NgaySinh %></td>
+              <td><%= student[i].GioiTinh %></td>
+              <td><%= student[i].QueQuan %></td>
+              <td><%= student[i].SDT %></td>
+              <td><%= student[i].Email %></td>
+            </tr>
+         <% } %>
     </table>
 
 </body>
