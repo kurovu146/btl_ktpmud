@@ -58,9 +58,18 @@ controller.get("/stu_info", (req: Request, res: Response) => {
 
     db.query(`SELECT * FROM sinhvien`, function(err, results) {
         if (err) throw err;
-        // object => {
-        //    key: value
-        //}
-        res.render("stu_info", { student: results })
+        const student = formatData(results)
+        res.render("stu_info", { student })
     })
 })
+
+function formatData(data: any[]) {
+    const formattedData = data.map((i: any) => {
+        const date = new Date(i.NgaySinh);
+        return {
+            ...i,
+            NgaySinh: date.getFullYear()+'-' + (date.getMonth()+1) + '-'+date.getDate()
+        }
+    })
+    return formattedData
+}
