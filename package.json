@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "@types/cookie-parser": "^1.4.2",
-    "@types/mysql": "^2.15.18"
+    "@types/mysql": "^2.15.18",
+    "pm2": "^5.1.0"
   }
 }
