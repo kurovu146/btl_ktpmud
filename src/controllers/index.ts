@@ -29,6 +29,10 @@ controller.get("/phieuDK", (req: Request, res: Response) => {
     res.render("phieuDK", {result: "Vui lòng nhập thông tin để đăng kí!"});
 })
 
+controller.get("/bill_input", (req: Request, res: Response) => {
+    res.render("bill_input", {result: "Nhập thông tin hoá đơn"});
+})
+
 controller.get("/student", (req: Request, res: Response) => {
     res.render("student", {student: "Vui lòng nhập thông tin sinh viên!"});
 })

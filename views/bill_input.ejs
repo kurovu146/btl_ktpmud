@@ -1,0 +1,54 @@
+<html>
+
+<head>
+    <link rel='stylesheet' href='./css/register.css' />
+</head>
+
+<body>
+    <form action="" method="POST" onsubmit="return result()">
+        <div class="registerform">
+            <h1>Hoá đơn</h1>
+            <p><%= result %></p>
+            <div>
+            <hr>
+                <label for="msHD"><b>Mã số hoá đơn</b></label>
+                <input type="text" name="msHD" id="msHD">
+                <br>
+                <label for="msPhong"><b>Mã số phòng</b></label><br>
+                <input type="number" name="msPhong" id="msPhong"><br>
+                <br>
+                <label for="NgayLapHD"><b>Ngày lập hoá đơn</b></label><br>
+                <input type="date" name="NgayLapHD" id="NgayLapHD" placeholder=><br>
+                <br>
+                <label for="NguoiLapHD"><b>Người lập hoá đơn</b></label><br>
+                <input type="text" name="NguoiLapHD" id="NguoiLapHD"><br>
+                <br>
+                <label for="Sodien"><b>Số điện</b></label><br>
+                <input type="number" name="Sodien" id="Sodien"><br>
+                <br>
+                <label for="Luongnuoc"><b>Lượng nước</b></label><br>
+                <input type="number" name="Luongnuoc" id="Luongnuoc"><br>
+                <br>
+                <label for="TienDien"><b>Tiền điện</b></label><br>
+                <input type="number" name="TienDien" id="TienDien"><br>
+                <br>
+                <label for="TienNuoc"><b>Tiền nước</b></label><br>
+                <input type="number" name="TienNuoc" id="TienNuoc"><br>
+                <br>
+                <label for="TongTien"><b>Tổng tiền</b></label><br>
+                <input type="number" name="TongTien" id="TongTien"><br>
+                <br>
+                <label for="NgayNop"><b>Ngày nộp</b></label><br>
+                <input type="date" name="NgayNop" id="NgayNop"><br>
+                <br>
+                <label for="Nguoinop"><b>Người nộp</b></label><br>
+                <input type="text" name="Nguoinop" id="Nguoinop"><br>
+            <hr>
+            </div>
+            <p>Vui lòng đồng ý với nội quy, quy định của Ban quản lý kí túc xá đề ra.</p>
+            <button type="submit" class="submit">Nhập</button>
+        </div>
+    </form>
+</body>
+
+</html>
