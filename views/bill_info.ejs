@@ -1,0 +1,35 @@
+<link rel='stylesheet' href='./css/stu_info.css' />
+
+<body>
+    <table id="customers">
+        <tr>
+            <th>Mã hoá đơn</th>
+            <th>Mã số phòng</th>
+            <th>Ngày lập hoá đơn</th>
+            <th>Người lập hoá đơn</th>
+            <th>Số điện</th>
+            <th>Số nước</th>
+            <th>Tiền điện</th>
+            <th>Tiền nước</th>
+            <th>Tổng tiền</th>
+            <th>Ngày nộp</th>
+            <th>Người nộp</th>
+        </tr>
+        <% for(var i=0; i < student.length; i++) { %>
+            <tr>
+              <td><%= student[i].msHD %></td>
+              <td><%= student[i].msPhong %></td>
+              <td><%= student[i].NgayLapHD %></td>
+              <td><%= student[i].NguoiLapHD %></td>
+              <td><%= student[i].Sodien %></td>
+              <td><%= student[i].Luongnuoc %></td>
+              <td><%= student[i].TienDien %></td>
+              <td><%= student[i].TienNuoc %></td>
+              <td><%= student[i].TongTien %></td>
+              <td><%= student[i].NgayNop %></td>
+              <td><%= student[i].Nguoinop %></td>
+            </tr>
+         <% } %>
+    </table>
+
+</body>

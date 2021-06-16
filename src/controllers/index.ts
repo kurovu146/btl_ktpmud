@@ -1,3 +1,4 @@
+import { json } from "body-parser";
 import express, { Request, Response } from "express";
 import { MySQLDb } from "../db/db";
 import { student } from "./student/student";
@@ -24,10 +25,6 @@ controller.get("/register", (req: Request, res: Response) => {
     res.render("register", {result: ""});
 })
 
-controller.get("/notification", (req: Request, res: Response) => {
-    res.render("notification")
-})
-
 controller.get("/phieuDK", (req: Request, res: Response) => {
     res.render("phieuDK", {result: "Vui lòng nhập thông tin để đăng kí!"});
 })
@@ -42,6 +39,17 @@ controller.get("/profiles", (req: Request, res: Response) => {
 
 controller.get("/bill", (req: Request, res: Response) => {
     res.render("bill")
+})
+
+controller.get("/bill_info", (req: Request, res: Response) => {
+    const mysql = MySQLDb.getInstance();
+    const db = mysql.db;
+
+    db.query(`SELECT * FROM hoadon`, function(err, results) {
+        if (err) throw err;
+        const student = formatData(results)
+        res.render("bill_info", { student })
+    })
 })
 
 controller.get("/record", (req: Request, res: Response) => {
@@ -65,10 +73,14 @@ controller.get("/stu_info", (req: Request, res: Response) => {
 
 function formatData(data: any[]) {
     const formattedData = data.map((i: any) => {
-        const date = new Date(i.NgaySinh);
+        const birth = new Date(i.NgaySinh);
+        const NgayLapHD = new Date(i.NgayLapHD);
+        const date = new Date(i.NgayNop);
         return {
             ...i,
-            NgaySinh: date.getFullYear()+'-' + (date.getMonth()+1) + '-'+date.getDate()
+            NgaySinh: birth.getFullYear()+'-' + (birth.getMonth()+1) + '-'+birth.getDate(),
+            NgayLapHD: NgayLapHD.getFullYear()+'-' + (NgayLapHD.getMonth()+1) + '-'+NgayLapHD.getDate(),
+            NgayNop: date.getFullYear()+'-' + (date.getMonth()+1) + '-'+date.getDate(),
         }
     })
     return formattedData

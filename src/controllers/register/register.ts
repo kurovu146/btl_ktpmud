@@ -2,8 +2,12 @@ import express, { Request, Response } from "express";
 import { MySQLDb } from "../../db/db";
 import { hashPassword } from "../../libs/hash";
 
+type users = {
+    username: string, 
+    password: string
+}
 
-export const register = (req: Request<{},{},{username: string, password: string}>, res: Response) => {
+export const register = (req: Request<{},{}, users>, res: Response) => {
     //TODO
     const mysql = MySQLDb.getInstance();
     const db = mysql.db;
