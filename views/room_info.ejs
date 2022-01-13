@@ -1,0 +1,29 @@
+<link rel='stylesheet' href='./css/stu_info.css' />
+
+<body>
+    <table id="customers">
+        <tr>
+            <th>msPDK</th>
+            <th>MSSV</th>
+            <th>msPhong</th>
+            <th>NgayBD</th>
+            <th>GiaPh</th>
+            <th>Tongtien</th>
+            <th>NgayLP</th>
+            <th>NguoiLP</th>
+        </tr>
+        <% for(var i=0; i < phieuDK.length; i++) { %>
+            <tr>
+              <td><%= phieuDK[i].msPDK %></td>
+              <td><%= phieuDK[i].MSSV %></td>
+              <td><%= phieuDK[i].msPhong %></td>
+              <td><%= phieuDK[i].NgayBD %></td>
+              <td><%= phieuDK[i].GiaPh %></td>
+              <td><%= phieuDK[i].Tongtien %></td>
+              <td><%= phieuDK[i].NgayLP %></td>
+              <td><%= phieuDK[i].NguoiLP %></td>
+            </tr>
+         <% } %>
+    </table>
+
+</body>
