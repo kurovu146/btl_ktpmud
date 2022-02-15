@@ -8,7 +8,7 @@
 .header {
     height: 400px;
     background-color: #F5F5F5;
-    margin-bottom:5px;
+    margin-bottom: 5px;
     padding-top: 5;
     text-align: center;
     color: red;
@@ -18,17 +18,18 @@
     height: 30px;
     line-height: 30px;
     background-color: #F5F5F5;
-    margin-bottom:5px;
+    margin-bottom: 5px;
     clear: both;
     text-align: center;
 }
 
-#menu ul, #menu li{
-    padding:0;
-    margin:0;
+#menu ul,
+#menu li {
+    padding: 0;
+    margin: 0;
 }
 
-#menu li{
+#menu li {
     position: relative;
     float: left;
     list-style: none;
@@ -36,34 +37,34 @@
     margin: auto;
 }
 
-#menu li a{
-    width: 300px;
+#menu li a {
+    width: 30%;
     height: 30px;
     display: block;
-    text-decoration:none;
+    text-decoration: none;
     text-align: center;
     line-height: 30px;
     background-color: #5DC2A7;
     color: white;
 }
- 
-#menu ul ul li a{
-    width: 100px;
+
+#menu ul ul li a {
+    width: 30%;
     text-align: left;
 }
 
-#menu li a:hover{
-     background-color: #118868;
+#menu li a:hover {
+    background-color: #118868;
 }
 
-#menu ul ul{
+#menu ul ul {
     position: absolute;
     top: 30px;
     left: 15px;
     visibility: hidden;
 }
 
-#menu ul li:hover ul{
+#menu ul li:hover ul {
     visibility: visible;
 }
 
@@ -71,34 +72,33 @@
     padding: 5px;
     width: 760px;
     min-height: 400px;
-    float:left;
+    float: left;
     margin-left: 20px;
     margin-right: 5px;
     margin-bottom: 5px;
     text-align: center;
-    background-color: rgb(255,255,255);
+    background-color: rgb(255, 255, 255);
 }
 
 .left {
     padding: 5px;
     width: 200px;
     min-height: 400px;
-    float:left;
+    float: left;
     margin-bottom: 5px;
     text-align: left;
-    background-color: rgb(255,255,255);
+    background-color: rgb(255, 255, 255);
 }
 
 .right {
     padding: 5px;
     width: 200px;
     min-height: 400px;
-    float:right;
+    float: right;
     margin-bottom: 5px;
     text-align: left;
-    background-color: rgb(255,255,255);
+    background-color: rgb(255, 255, 255);
 }
-
 
 .footer {
     height: 50px;
@@ -118,6 +118,6 @@ p {
     color: black;
 }
 
-body { 
-    background-color: rgb(250,250,250);
+body {
+    background-color: rgb(250, 250, 250);
 }

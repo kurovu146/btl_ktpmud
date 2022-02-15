@@ -1,7 +1,6 @@
 import { json } from "body-parser";
 import express, { Request, Response } from "express";
 import { MySQLDb } from "../db/db";
-import { student } from "./student/student";
 
 export const controller = express.Router();
 
@@ -37,6 +36,10 @@ controller.get("/student", (req: Request, res: Response) => {
     res.render("student", {student: "Vui lòng nhập thông tin sinh viên!"});
 })
 
+controller.get("/stu_update", (req: Request, res: Response) => {
+    res.render("stu_update", {stu_update: "Vui lòng sửa thông tin sinh viên!"});
+})
+
 controller.get("/profiles", (req: Request, res: Response) => {
     res.render("profiles")
 })
@@ -58,6 +61,17 @@ controller.get("/bill_info", (req: Request, res: Response) => {
 
 controller.get("/record", (req: Request, res: Response) => {
     res.render("record")
+})
+
+controller.get("/record_info", (req: Request, res: Response) => {
+    const mysql = MySQLDb.getInstance();
+    const db = mysql.db;
+
+    db.query(`SELECT * FROM bienbanvipham`, function(err, results) {
+        if (err) throw err;
+        const record = formatData(results)
+        res.render("record_info", { record })
+    })
 })
 
 controller.get("/update", (req: Request, res: Response) => {
@@ -93,6 +107,7 @@ function formatData(data: any[]) {
         const date = new Date(i.NgayNop);
         const NgayBD = new Date(i.NgayBD);
         const NgayLP = new Date(i.NgayLP);
+        const NgayLBB = new Date(i.NgayLBB);
 
         return {
             ...i,
@@ -101,6 +116,7 @@ function formatData(data: any[]) {
             NgayNop: date.getFullYear()+'-' + (date.getMonth()+1) + '-'+date.getDate(),
             NgayBD: NgayBD.getFullYear()+'-' + (NgayBD.getMonth()+1) + '-'+NgayBD.getDate(),
             NgayLP: NgayLP.getFullYear()+'-' + (NgayLP.getMonth()+1) + '-'+NgayLP.getDate(),
+            NgayLBB: NgayLBB.getFullYear()+'-' + (NgayLBB.getMonth()+1) + '-'+NgayLBB.getDate(),
         }
     })
     return formattedData

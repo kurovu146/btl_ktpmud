@@ -1,0 +1,41 @@
+<link rel='stylesheet' href='./css/stu_info.css' />
+
+<body>
+    <table id="customers">
+        <tr>
+            <th>msBBVP</th>
+            <th>MSSV</th>
+            <th>msPhong</th>
+            <th>LoiVP</th>
+            <th>HinhThucXLVP</th>
+            <th>NguoiLBB</th>
+            <th>NgayLBB</th>
+        </tr>
+        <% for(var i=0; i < record.length; i++) { %>
+            <tr>
+                <td>
+                    <%= record[i].msBBVP %>
+                </td>
+                <td>
+                    <%= record[i].MSSV %>
+                </td>
+                <td>
+                    <%= record[i].msPhong %>
+                </td>
+                <td>
+                    <%= record[i].LoiVP %>
+                </td>
+                <td>
+                    <%= record[i].HinhThucXLVP %>
+                </td>
+                <td>
+                    <%= record[i].NgayLBB %>
+                </td>
+                <td>
+                    <%= record[i].NguoiLBB %>
+                </td>
+            </tr>
+            <% } %>
+    </table>
+
+</body>

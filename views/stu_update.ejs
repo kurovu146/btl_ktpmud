@@ -1,0 +1,51 @@
+<html>
+
+<head>
+    <link rel='stylesheet' href='./css/register.css' />
+</head>
+
+<body>
+    <form action="" method="POST" onsubmit="return stu_update()">
+        <div class="registerSV">
+            <h1>Sửa thông tin sinh viên!</h1>
+            <p>
+                <%= stu_update %>
+            </p>
+            <hr>
+            <label for="MSSV"><b>MSSV</b></label>
+            <br>
+            <input type="number" name="MSSV" id="MSSV">
+            <br>
+            <br>
+            <label for="Nganh"><b>Ngành</b></label>
+            <input type="text" name="Nganh" id="Nganh">
+            <label for="Hoten"><b>Họ tên</b></label>
+            <input type="text" name="Hoten" id="Hoten">
+            <label for="CMND"><b>CMND</b></label>
+            <br>
+            <input type="number" name="CMND" id="CMND">
+            <br>
+            <br>
+            <label for="NgaySinh"><b>Ngày Sinh</b></label>
+            <input type="date" name="NgaySinh" id="NgaySinh">
+            <br>
+            <br>
+            <label for="GioiTinh"><b>Giới tính</b></label>
+            <input type="text" name="GioiTinh" id="GioiTinh">
+            <label for="QueQuan"><b>Quê Quán</b></label>
+            <input type="text" name="QueQuan" id="QueQuan">
+            <label for="SDT"><b>Số điện thoại</b></label>
+            <br>
+            <input type="number" name="SDT" id="SDT">
+            <br>
+            <br>
+            <label for="Email"><b>Email</b></label>
+            <input type="text" name="Email" id="Email">
+            <hr>
+
+            <button type="submit" class="submit">Đăng ký</button>
+        </div>
+    </form>
+</body>
+
+</html>

@@ -15,7 +15,7 @@ export class MySQLDb {
             host: "localhost",
             user: "root",
             password: "",
-            database: "btlktpmud"
+            database: "test"
         }
 
         const connect = mysql.createConnection(config);
